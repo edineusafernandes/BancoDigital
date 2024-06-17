@@ -1,5 +1,5 @@
 package BancoDigital;
 
-public class ContaPoupanca {
+public class ContaPoupanca extends Conta {
 
 }

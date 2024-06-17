@@ -1,20 +1,30 @@
 package BancoDigital;
 
-public class Conta {
+public abstract class Conta implements IConta {
 
-    private int agencia;
-    private int numero;
-    private double saldo;
+    private static final int AGENCIA_PADRAO = 1;
+    private static int SEQUENCIAc = 1;
 
-    public void sacar() {
+    protected int agencia;
+    protected int numero;
+    protected double saldo;
 
+    public conta () {
+        this.agencia = Conta.AGENCIA_PADRAO;
+        this.numero = SEQUENCIAc++;
     }
 
-    public void depositar() {
-
+    @Override
+    public void depositar(double valor) {
     }
 
-    public void trabsferir() {
+    @Override
+    public void sacar(double valor) {
+    }
+
+    @Override
+    public void trabsferir(double valor, Conta contaDestino) {
+    }
 
     }
 
@@ -29,5 +39,3 @@ public class Conta {
     public double getSaldo() {
         return saldo;
     }
-
-}
