@@ -3,11 +3,14 @@ package BancoDigital;
 public class TestApp {
     public static void main(String[] args) {
 
-        Conta cc = new ContaCorrente();
+        Cliente edineusa = new Cliente();
+        edineusa.setNome("Edineusa");
+
+        Conta cc = new ContaCorrente(edineusa);
         cc.depositar(1200);
 
-        Conta poupanca = new ContaPoupanca();
-        cc.transferir(1600, poupanca);
+        Conta poupanca = new ContaPoupanca(edineusa);
+        cc.transferir(500, poupanca);
 
         cc.imprimirInfoConta();
         poupanca.imprimirInfoConta();
