@@ -9,23 +9,33 @@ public abstract class Conta implements IConta {
     protected int numero;
     protected double saldo;
 
-    public conta () {
+    public Conta() {
         this.agencia = Conta.AGENCIA_PADRAO;
         this.numero = SEQUENCIAc++;
     }
 
     @Override
     public void depositar(double valor) {
+        saldo += valor;
     }
 
     @Override
     public void sacar(double valor) {
+        if (saldo >= valor) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
     }
 
     @Override
-    public void trabsferir(double valor, Conta contaDestino) {
-    }
-
+    public void transferir(double valor, Conta contaDestino) {
+        if (saldo >= valor) {
+            this.sacar(valor);
+            contaDestino.depositar(valor);
+        } else {
+            System.out.println("Saldo insuficiente para a transferência.");
+        }
     }
 
     public int getAgencia() {
@@ -39,3 +49,10 @@ public abstract class Conta implements IConta {
     public double getSaldo() {
         return saldo;
     }
+
+    public void imprimirInfoConta() {
+        System.out.println(String.format("Agencia: %d", this.agencia));
+        System.out.println(String.format("Numero: %d", this.numero));
+        System.out.println(String.format("Saldo: %.2f", this.saldo));
+    }
+}

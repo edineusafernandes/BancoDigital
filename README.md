@@ -1,18 +1,25 @@
-## Getting Started
+## Sistema Bancário 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este é um projeto simples de simulação de um sistema bancário, desenvolvido em Java, que utiliza conceitos de herança e interfaces para representar contas correntes e contas poupança. Esta atividade é parte das atividades desenvolvidas no Curso de Java Básico ofererecido pela DIO.
 
-## Folder Structure
+# Funcionalidades Implementadas
+Conta: Classe abstrata que define o comportamento básico de uma conta bancária.
 
-The workspace contains two folders by default, where:
+# Métodos implementados: 
+depositar(double valor), sacar(double valor), transferir(double valor, Conta contaDestino), imprimirInfoConta().
+ContaCorrente: Subclasse de Conta que implementa uma conta corrente.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Sobrescreve o método imprimirInfoConta() para exibir o extrato da conta corrente.
+ContaPoupanca: Subclasse de Conta que implementa uma conta poupança.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Sobrescreve o método imprimirInfoConta() para exibir o extrato da conta poupança.
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+# IConta: 
+Interface que define os métodos que uma conta deve implementar.
 
-## Dependency Management
+Métodos definidos: depositar(double valor), sacar(double valor), transferir(double valor, Conta contaDestino), imprimirInfoConta().
+TestApp: Classe de teste que demonstra o uso das classes ContaCorrente e ContaPoupanca.
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Cria uma conta corrente e uma conta poupança.
+Realiza operações de depósito, saque e transferência entre contas.
+Exibe informações detalhadas das contas após as operações.
